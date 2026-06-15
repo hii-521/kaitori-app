@@ -358,6 +358,18 @@ buyTotal.toLocaleString()+"円";
 document.getElementById("freeBuyTotal").innerHTML =
 freeBuyTotal.toLocaleString()+"円";
 
+document.getElementById("freeBuyTotal").innerHTML =
+freeBuyTotal.toLocaleString()+"円";
+
+let lossRate = 0;
+
+if(total > 0){
+  lossRate = ((buyTotal + freeBuyTotal) / total) * 100;
+}
+
+document.getElementById("lossRate").innerHTML =
+lossRate.toFixed(1) + "%";
+
 document.getElementById("total").innerHTML=
 total.toLocaleString()+"円";
 
