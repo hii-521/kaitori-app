@@ -156,6 +156,8 @@ id="g${i}">
 function calc(){
 
 let total=0;
+let buyTotal=0;
+
 let rate = 11;
 items.forEach((item,i)=>{
 
@@ -170,8 +172,12 @@ document.getElementById("a"+i).innerHTML =
 "買取 " + buyAmount.toLocaleString() + "円";
 
 total+=amount;
+buyTotal+=buyAmount;
 
 });
+
+document.getElementById("buyTotal").innerHTML=
+buyTotal.toLocaleString()+"円";
 
 document.getElementById("total").innerHTML=
 total.toLocaleString()+"円";
