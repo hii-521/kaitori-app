@@ -140,6 +140,7 @@ const list=document.getElementById("list");
 items.forEach((item,i)=>{
 
 list.innerHTML += `
+<div class="row">
 <div class="name">${item[0]}</div>
 <div class="price">${item[1].toLocaleString()}円</div>
 <input type="number"
