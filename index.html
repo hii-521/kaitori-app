@@ -113,75 +113,105 @@ oninput="calc()"
 
 <div class="card">
 
-<div class="row">
-  <input type="text" id="freeName1" placeholder="金種">
-
-  <input type="number" id="freePrice1"
-         placeholder="単価"
-         oninput="calc()">
-
-  <input type="number" id="freeGram1"
-         placeholder="g"
-         oninput="calc()">
-
-  <input type="number"
-         id="freeRate1"
-         value="11"
-         placeholder="%"
-         oninput="calc()">
+<!-- フリー1 -->
+<div style="text-align:right;margin-bottom:10px;">
+<input type="number" id="freeRate1" value="11" placeholder="%"
+oninput="calc()">
 </div>
 
-  <div class="amount" id="freeAmount1">
-    売 0円　買 0円
-  </div>
-
-  <hr>
-
 <div class="row">
-  <input type="text" id="freeName2" placeholder="金種">
-
-  <input type="number" id="freePrice2"
-         placeholder="単価"
-         oninput="calc()">
-
-  <input type="number" id="freeGram2"
-         placeholder="g"
-         oninput="calc()">
-
-  <input type="number"
-         id="freeRate2"
-         value="11"
-         placeholder="%"
-         oninput="calc()">
+<input type="text" id="freeName1" placeholder="金種">
+<input type="number" id="freePrice1" placeholder="単価"
+oninput="calc()">
+<input type="number" id="freeGram1" placeholder="g"
+oninput="calc()">
 </div>
 
-  <div class="amount" id="freeAmount2">
-    売 0円　買 0円
-  </div>
-
-  <hr>
-
-<div class="row">
-  <input type="text" id="freeName3" placeholder="金種">
-
-  <input type="number" id="freePrice3"
-         placeholder="単価"
-         oninput="calc()">
-
-  <input type="number" id="freeGram3"
-         placeholder="g"
-         oninput="calc()">
-
-  <input type="number"
-         id="freeRate3"
-         value="11"
-         placeholder="%"
-         oninput="calc()">
+<div class="amount" id="freeAmount1">
+売 0円　<span style="color:#16354d;">買 0円</span>
 </div>
 
-  <div class="amount" id="freeAmount3">
-    売 0円　買 0円
-  </div>
+<hr>
+
+<!-- フリー2 -->
+<div style="text-align:right;margin-bottom:10px;">
+<input type="number" id="freeRate2" value="11" placeholder="%"
+oninput="calc()">
+</div>
+
+<div class="row">
+<input type="text" id="freeName2" placeholder="金種">
+<input type="number" id="freePrice2" placeholder="単価"
+oninput="calc()">
+<input type="number" id="freeGram2" placeholder="g"
+oninput="calc()">
+</div>
+
+<div class="amount" id="freeAmount2">
+売 0円　<span style="color:#16354d;">買 0円</span>
+</div>
+
+<hr>
+
+<!-- フリー3 -->
+<div style="text-align:right;margin-bottom:10px;">
+<input type="number" id="freeRate3" value="11" placeholder="%"
+oninput="calc()">
+</div>
+
+<div class="row">
+<input type="text" id="freeName3" placeholder="金種">
+<input type="number" id="freePrice3" placeholder="単価"
+oninput="calc()">
+<input type="number" id="freeGram3" placeholder="g"
+oninput="calc()">
+</div>
+
+<div class="amount" id="freeAmount3">
+売 0円　<span style="color:#16354d;">買 0円</span>
+</div>
+
+<hr>
+
+<!-- フリー4 -->
+<div style="text-align:right;margin-bottom:10px;">
+<input type="number" id="freeRate4" value="11" placeholder="%"
+oninput="calc()">
+</div>
+
+<div class="row">
+<input type="text" id="freeName4" placeholder="金種">
+<input type="number" id="freePrice4" placeholder="単価"
+oninput="calc()">
+<input type="number" id="freeGram4" placeholder="g"
+oninput="calc()">
+</div>
+
+<div class="amount" id="freeAmount4">
+売 0円　<span style="color:#16354d;">買 0円</span>
+</div>
+
+<hr>
+
+<!-- フリー5 -->
+<div style="text-align:right;margin-bottom:10px;">
+<input type="number" id="freeRate5" value="11" placeholder="%"
+oninput="calc()">
+</div>
+
+<div class="row">
+<input type="text" id="freeName5" placeholder="金種">
+<input type="number" id="freePrice5" placeholder="単価"
+oninput="calc()">
+<input type="number" id="freeGram5" placeholder="g"
+oninput="calc()">
+</div>
+
+<div class="amount" id="freeAmount5">
+売 0円　<span style="color:#16354d;">買 0円</span>
+</div>
+
+</div>
 
   
 <script>
@@ -264,7 +294,7 @@ buyTotal+=buyAmount;
 
 });
 
-for(let i=1;i<=3;i++){
+for(let i=1;i<=5;i++){
 
 let freePrice =
 parseFloat(document.getElementById("freePrice"+i).value)||0;
@@ -272,11 +302,17 @@ parseFloat(document.getElementById("freePrice"+i).value)||0;
 let freeGram =
 parseFloat(document.getElementById("freeGram"+i).value)||0;
 
-let freeSell = Math.round(freePrice * freeGram);
-let freeBuy = Math.round(freeSell * rate / 100);
+let freeRate =
+parseFloat(document.getElementById("freeRate"+i).value)||0;
+
+let freeSell =
+Math.round(freePrice * freeGram);
+
+let freeBuy =
+Math.round(freeSell * freeRate / 100);
 
 document.getElementById("freeAmount"+i).innerHTML =
-"売 " + freeSell.toLocaleString() + "円 " +
+"売 " + freeSell.toLocaleString() + "円　" +
 "<span style='color:#16354d;'>買 " +
 freeBuy.toLocaleString() +
 "円</span>";
