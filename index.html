@@ -184,8 +184,8 @@ let amount=Math.round(g*item[1]);
 let buyAmount = Math.round(amount * rate / 100);
 
 document.getElementById("a"+i).innerHTML =
-"売 " + amount.toLocaleString() + "円　買 " +
-buyAmount.toLocaleString() + "円";
+"売 " + amount.toLocaleString() + "円 "
++ "<span style='color:#16354d;'>買 " + buyAmount.toLocaleString() + "円</span>";
 total+=amount;
 buyTotal+=buyAmount;
 
