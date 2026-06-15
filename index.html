@@ -111,6 +111,43 @@ oninput="calc()"
 
 <div class="card" id="list"></div>
 
+<div class="card">
+
+  <div class="row">
+    <input type="text" id="freeName1" placeholder="金種">
+    <input type="number" id="freePrice1" placeholder="単価" oninput="calc()">
+    <input type="number" id="freeGram1" placeholder="g" oninput="calc()">
+  </div>
+
+  <div class="amount" id="freeAmount1">
+    売 0円　買 0円
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <input type="text" id="freeName2" placeholder="金種">
+    <input type="number" id="freePrice2" placeholder="単価" oninput="calc()">
+    <input type="number" id="freeGram2" placeholder="g" oninput="calc()">
+  </div>
+
+  <div class="amount" id="freeAmount2">
+    売 0円　買 0円
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <input type="text" id="freeName3" placeholder="金種">
+    <input type="number" id="freePrice3" placeholder="単価" oninput="calc()">
+    <input type="number" id="freeGram3" placeholder="g" oninput="calc()">
+  </div>
+
+  <div class="amount" id="freeAmount3">
+    売 0円　買 0円
+  </div>
+
+  
 <script>
 
 const items = [
@@ -190,6 +227,27 @@ total+=amount;
 buyTotal+=buyAmount;
 
 });
+
+for(let i=1;i<=3;i++){
+
+let freePrice =
+parseFloat(document.getElementById("freePrice"+i).value)||0;
+
+let freeGram =
+parseFloat(document.getElementById("freeGram"+i).value)||0;
+
+let freeSell = Math.round(freePrice * freeGram);
+let freeBuy = Math.round(freeSell * rate / 100);
+
+document.getElementById("freeAmount"+i).innerHTML =
+"売 " + freeSell.toLocaleString() + "円 " +
+"<span style='color:#16354d;'>買 " +
+freeBuy.toLocaleString() +
+"円</span>";
+
+buyTotal += freeBuy;
+}
+
 
 document.getElementById("buyTotal").innerHTML=
 buyTotal.toLocaleString()+"円";
