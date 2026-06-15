@@ -79,6 +79,20 @@ color:#16354d;
 
 <div class="card">
 <div class="total" id="total">0円</div>
+
+<div style="text-align:center;margin-top:15px;">
+買取率
+<input
+type="number"
+id="rate"
+value="85"
+style="width:70px;text-align:center;"
+oninput="calc()"
+> %
+</div>
+
+<div class="total" id="buyTotal" style="font-size:28px;">
+0円
 </div>
 
 <div class="card" id="list"></div>
@@ -155,6 +169,12 @@ total+=amount;
 document.getElementById("total").innerHTML=
 total.toLocaleString()+"円";
 
+let rate = parseFloat(document.getElementById("rate").value)||0;
+
+let buyTotal = Math.round(total * rate / 100);
+
+document.getElementById("buyTotal").innerHTML =
+buyTotal.toLocaleString()+"円";
 }
 
 </script>
