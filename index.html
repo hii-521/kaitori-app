@@ -62,9 +62,10 @@ text-align:right;
 }
 
 .amount{
-width:120px;
-text-align:right;
+width:100%;
+text-align:center;
 font-weight:bold;
+margin-top:8px;
 }
 
 .total{
@@ -173,9 +174,8 @@ let amount=Math.round(g*item[1]);
 let buyAmount = Math.round(amount * rate / 100);
 
 document.getElementById("a"+i).innerHTML =
-"売 " + amount.toLocaleString() + "円<br>" +
-"買 " + buyAmount.toLocaleString() + "円";
-
+"売 " + amount.toLocaleString() + "円　買 " +
+buyAmount.toLocaleString() + "円";
 total+=amount;
 buyTotal+=buyAmount;
 
