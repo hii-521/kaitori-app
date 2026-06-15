@@ -418,10 +418,13 @@ window.onload = function(){
 
 const today = new Date();
 
+const week = ["日","月","火","水","木","金","土"];
+
 document.getElementById("today").innerHTML =
 today.getFullYear() + "/" +
 String(today.getMonth()+1).padStart(2,"0") + "/" +
-String(today.getDate()).padStart(2,"0");
+String(today.getDate()).padStart(2,"0") +
+"（" + week[today.getDay()] + "）";
 
 }
 
