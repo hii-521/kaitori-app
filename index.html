@@ -407,8 +407,18 @@ if(total > 0){
   lossRate = ((buyTotal + freeBuyTotal) / total) * 100;
 }
 
+let lossColor = "black";
+
+if(lossRate >= 40){
+  lossColor = "red";
+}else if(lossRate >= 30){
+  lossColor = "orange";
+}
+
 document.getElementById("lossRate").innerHTML =
-lossRate.toFixed(1) + "%";
+'<span style="color:' + lossColor + ';">' +
+lossRate.toFixed(1) +
+'%</span>';
 
 document.getElementById("total").innerHTML=
 total.toLocaleString()+"円";
