@@ -176,13 +176,6 @@ total+=amount;
 document.getElementById("total").innerHTML=
 total.toLocaleString()+"円";
 
-let rate = parseFloat(document.getElementById("rate").value)||0;
-
-let buyTotal = Math.round(total * rate / 100);
-
-document.getElementById("buyTotal").innerHTML =
-buyTotal.toLocaleString()+"円";
-}
 
 </script>
 
