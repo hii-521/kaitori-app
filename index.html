@@ -105,7 +105,27 @@ oninput="calc()"
 > %
 </div>
 
-<div class="total" id="buyTotal" style="font-size:28px;">
+<div style="text-align:center;font-size:18px;font-weight:bold;">
+合計買取
+</div>
+
+<div class="total" id="buyTotal">
+0円
+</div>
+
+<div style="text-align:center;margin-top:10px;font-size:18px;">
+金プラチナ買取
+</div>
+
+<div class="total" id="metalTotal" style="font-size:28px;color:#16354d;">
+0円
+</div>
+
+<div style="text-align:center;margin-top:10px;font-size:18px;">
+その他買取
+</div>
+
+<div class="total" id="freeBuyTotal" style="font-size:28px;color:#16354d;">
 0円
 </div>
 
@@ -276,6 +296,7 @@ function calc(){
 
 let total=0;
 let buyTotal=0;
+let freeBuyTotal=0;
 
 let rate = 11;
 items.forEach((item,i)=>{
@@ -317,12 +338,17 @@ document.getElementById("freeAmount"+i).innerHTML =
 freeBuy.toLocaleString() +
 "円</span>";
 
-buyTotal += freeBuy;
+freeBuyTotal += freeBuy;
 }
 
 
-document.getElementById("buyTotal").innerHTML=
+document.getElementById("buyTotal").innerHTML =
+(buyTotal + freeBuyTotal).toLocaleString()+"円";
+document.getElementById("metalTotal").innerHTML =
 buyTotal.toLocaleString()+"円";
+
+document.getElementById("freeBuyTotal").innerHTML =
+freeBuyTotal.toLocaleString()+"円";
 
 document.getElementById("total").innerHTML=
 total.toLocaleString()+"円";
