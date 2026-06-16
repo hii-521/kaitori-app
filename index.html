@@ -144,6 +144,17 @@ style="width:70px;text-align:center;"
 <button onclick="applyRate()">
 全金種に反映
 </button>
+
+<button onclick="resetAll()"
+style="
+background:#d9534f;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:6px;">
+リセット
+</button>
+
 </div>
 
 減価率
@@ -438,6 +449,32 @@ String(today.getDate()).padStart(2,"0") +
 
 }
 
+function resetAll(){
+
+  if(!confirm("本当にすべての入力をリセットしますか？")){
+    return;
+  }
+
+  document.querySelectorAll("input").forEach(input=>{
+
+    if(input.id === "rate"){
+      input.value = 11;
+    }
+    else if(input.id && input.id.startsWith("rate")){
+      input.value = 11;
+    }
+    else if(input.id && input.id.startsWith("freeRate")){
+      input.value = 11;
+    }
+    else{
+      input.value = "";
+    }
+
+  });
+
+  calc();
+
+}
 </script>
 
 </body>
