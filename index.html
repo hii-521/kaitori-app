@@ -154,6 +154,20 @@ font-size:16px;">
 個別LINE報告
 </button>
 
+<button onclick="saveCase()"
+style="
+width:80%;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:10px;
+font-weight:bold;
+font-size:16px;
+margin-top:10px;">
+案件保存
+</button>
+
 </div>
 
 <div style="
@@ -498,13 +512,13 @@ String(today.getDate()).padStart(2,"0") +
 
 function sendLineReport(){
 
-  const staff1 =
-  document.getElementById("staff1").value || "-";
-
   const staff2 =
-  document.getElementById("staff2").value || "-";
+document.getElementById("staff2").value || "-";
 
-  const buy =
+const rate =
+document.getElementById("rate").value || 0;
+
+const buy =
   document.getElementById("buyTotal").innerText;
 
   const sale =
@@ -523,11 +537,13 @@ function sendLineReport(){
 
 担当者②：${staff2}
 
+減価率：${rate}%
+
 買取額：${buy}
 
 売上：${sale}
 
-利益：${profit}`;
+利益：${profit}
 
   window.open(
     "https://line.me/R/msg/text/?"
