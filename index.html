@@ -589,18 +589,53 @@ function sendDailyReport(){
   let totalSale = 0;
   let totalProfit = 0;
 
+let staffData = {};
+
   cases.forEach(c => {
+
+const name = c.staff2 || "未入力";
+
+if(!staffData[name]){
+  staffData[name] = {
+    count:0,
+    buy:0,
+    sale:0
+  };
+}
+
+staffData[name].count++;
+
+staffData[name].buy +=
+parseInt(c.buy.replace(/[^0-9]/g,"")) || 0;
+
+staffData[name].sale +=
+parseInt(c.sale.replace(/[^0-9]/g,"")) || 0;
 
     totalBuy += parseInt(c.buy.replace(/[^0-9]/g,"")) || 0;
     totalSale += parseInt(c.sale.replace(/[^0-9]/g,"")) || 0;
     totalProfit += parseInt(c.profit.replace(/[^0-9]/g,"")) || 0;
 
   });
+  let staffText = "";
+
+Object.keys(staffData).forEach(name=>{
+
+  staffText +=
+`${name}
+件数：${staffData[name].count}件
+買取：${staffData[name].buy.toLocaleString()}円
+売上：${staffData[name].sale.toLocaleString()}円
+
+`;
+
+});
 
   const text =
 `【合算報告】
 
 案件数：${cases.length}件
+
+${staffText}
 
 総買取額：
 ${totalBuy.toLocaleString()}円
