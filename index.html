@@ -633,14 +633,12 @@ if(buyNum > 0 || saleNum > 0){
 
 const name = c.staff2 || "未入力";
 
-staffText += `
-${name}
-件数：${staffData[name].count}件
-買取：${staffData[name].buy.toLocaleString()}円
-売上：${staffData[name].sale.toLocaleString()}円
-`
-
-  };
+if(!staffData[name]){
+staffData[name] = {
+count:0,
+buy:0,
+sale:0
+};
 }
 
 if(buyNum > 0 || saleNum > 0){
@@ -662,11 +660,17 @@ parseInt(c.sale.replace(/[^0-9]/g,"")) || 0;
 
 Object.keys(staffData).forEach(name=>{
 
-  staffText +=
+const lossRate =
+staffData[name].sale > 0
+? ((staffData[name].buy / staffData[name].sale) * 100).toFixed(1)
+: "0.0";
+
+staffText +=
 `${name}
 件数：${staffData[name].count}件
 買取：${staffData[name].buy.toLocaleString()}円
 売上：${staffData[name].sale.toLocaleString()}円
+減価率：${lossRate}%
 
 `;
 
