@@ -746,6 +746,9 @@ parseInt(sale.replace(/[^0-9]/g,"")) -
 parseInt(buy.replace(/[^0-9]/g,""))
 ).toLocaleString() + "円";
 
+const lossRate =
+document.getElementById("lossRate").innerText;
+
 let cases =
 JSON.parse(localStorage.getItem("cases") || "[]");
 
@@ -755,7 +758,8 @@ staff1,
 staff2,
 buy,
 sale,
-profit
+profit,
+lossRate
 });
 
 localStorage.setItem(
