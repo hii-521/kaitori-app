@@ -164,6 +164,21 @@ margin-top:10px;">
 案件保存
 </button>
 
+<button
+onclick="sendDailyReport()"
+style="
+width:80%;
+padding:12px;
+background:#ff9800;
+color:white;
+border:none;
+border-radius:10px;
+font-weight:bold;
+font-size:16px;
+margin-top:10px;">
+日計LINE報告
+</button>
+
 </div>
 
 <div style="
@@ -545,6 +560,51 @@ window.open(
 "https://line.me/R/msg/text/?" +
 encodeURIComponent(text)
 );
+
+}
+
+}
+
+function sendDailyReport(){
+
+  let cases =
+  JSON.parse(localStorage.getItem("cases") || "[]");
+
+  if(cases.length === 0){
+    alert("保存された案件がありません");
+    return;
+  }
+
+  let totalBuy = 0;
+  let totalSale = 0;
+  let totalProfit = 0;
+
+  cases.forEach(c => {
+
+    totalBuy += parseInt(c.buy.replace(/[^0-9]/g,"")) || 0;
+    totalSale += parseInt(c.sale.replace(/[^0-9]/g,"")) || 0;
+    totalProfit += parseInt(c.profit.replace(/[^0-9]/g,"")) || 0;
+
+  });
+
+  const text =
+`【合算報告】
+
+案件数：${cases.length}件
+
+総買取額：
+${totalBuy.toLocaleString()}円
+
+総売上：
+${totalSale.toLocaleString()}円
+
+総利益：
+${totalProfit.toLocaleString()}円`;
+
+  window.open(
+    "https://line.me/R/msg/text/?"
+    + encodeURIComponent(text)
+  );
 
 }
 
