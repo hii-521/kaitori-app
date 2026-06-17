@@ -585,15 +585,16 @@ parseInt(buy.replace(/[^0-9]/g,""))
 const lossRate =
 document.getElementById("lossRate").innerText;
 
-const text =
-`【売上報告】
+const text = `
+【売上報告】
 
-担当者①：${staff1}
-担当者②：${staff2}
+担当者①: ${staff1}
+担当者②: ${staff2}
 
-買取額：${buy}
-売上：${sale}
-利益：${profit}`;
+買取額: ${buy}
+売上: ${sale}
+利益: ${profit}
+減価率: ${lossRate}`;
 
 window.open(
 "https://line.me/R/msg/text/?" +
