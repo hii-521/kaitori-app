@@ -633,11 +633,13 @@ if(buyNum > 0 || saleNum > 0){
 
 const name = c.staff2 || "未入力";
 
-if(!staffData[name]){
-  staffData[name] = {
-    count:0,
-    buy:0,
-    sale:0
+staffText += `
+${name}
+件数：${staffData[name].count}件
+買取：${staffData[name].buy.toLocaleString()}円
+売上：${staffData[name].sale.toLocaleString()}円
+`
+
   };
 }
 
