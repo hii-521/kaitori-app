@@ -742,6 +742,21 @@ input.value = "";
 
 calc();
 
+function resetCases(){
+
+let cases =
+JSON.parse(localStorage.getItem("cases") || "[]");
+
+if(!confirm(
+cases.length + "件の案件を削除しますか？"
+)){
+return;
+}
+
+localStorage.removeItem("cases");
+
+alert("削除しました");
+
 }
 
 </script>
