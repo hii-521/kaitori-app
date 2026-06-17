@@ -552,6 +552,50 @@ const buy =
 
 }
 
+function saveCase(){
+
+  const staff1 =
+  document.getElementById("staff1").value || "-";
+
+  const staff2 =
+  document.getElementById("staff2").value || "-";
+
+  const rate =
+  document.getElementById("rate").value || 0;
+
+  const buy =
+  document.getElementById("buyTotal").innerText;
+
+  const sale =
+  document.getElementById("total").innerText;
+
+  const profit =
+  (
+    parseInt(sale.replace(/[^0-9]/g,"")) -
+    parseInt(buy.replace(/[^0-9]/g,""))
+  ).toLocaleString() + "円";
+
+  let cases =
+  JSON.parse(localStorage.getItem("cases") || "[]");
+
+  cases.push({
+    date:new Date().toLocaleString(),
+    staff1,
+    staff2,
+    rate,
+    buy,
+    sale,
+    profit
+  });
+
+  localStorage.setItem(
+    "cases",
+    JSON.stringify(cases)
+  );
+
+  alert("案件を保存しました");
+}
+
 function resetAll(){
 
   if(!confirm("本当にすべての入力をリセットしますか？")){
