@@ -656,21 +656,18 @@ parseInt(c.sale.replace(/[^0-9]/g,"")) || 0;
     totalProfit += parseInt(c.profit.replace(/[^0-9]/g,"")) || 0;
 
   });
-  let staffText = "";
+  
+let staffText = "";
 
-Object.keys(staffData).forEach(name=>{
-
-const lossRate =
-staffData[name].sale > 0
-? ((staffData[name].buy / staffData[name].sale) * 100).toFixed(1)
-: "0.0";
+cases.forEach((c,index)=>{
 
 staffText +=
-`${name}
-件数：${staffData[name].count}件
-買取：${staffData[name].buy.toLocaleString()}円
-売上：${staffData[name].sale.toLocaleString()}円
-減価率：${lossRate}%
+`案件${index + 1}
+担当：${c.staff2}
+買取：${c.buy}
+売上：${c.sale}
+利益：${c.profit}
+減価率：${c.lossRate}
 
 `;
 
