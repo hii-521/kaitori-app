@@ -539,7 +539,7 @@ calc();
 };
 
 function sendLineReport(){
-
+  
 const staff1 =
 document.getElementById("staff1").value || "-";
 
@@ -619,6 +619,14 @@ ${totalProfit.toLocaleString()}円`;
 }
 
 function saveCase(){
+
+if(!confirm(
+"案件を保存しますか？\n\n" +
+"買取：" + document.getElementById("buyTotal").innerText + "\n" +
+"売上：" + document.getElementById("total").innerText
+)){
+  return;
+}
 
 const staff1 =
 document.getElementById("staff1").value || "-";
