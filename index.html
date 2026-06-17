@@ -641,7 +641,9 @@ if(!staffData[name]){
   };
 }
 
-staffData[name].count++;
+if(buyNum > 0 || saleNum > 0){
+    staffData[name].count++;
+}
 
 staffData[name].buy +=
 parseInt(c.buy.replace(/[^0-9]/g,"")) || 0;
