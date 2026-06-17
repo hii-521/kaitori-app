@@ -605,6 +605,7 @@ function sendDailyReport(title="合算報告"){
   let validCount = 0;
   
 let staffData = {};
+let caseText = "";
 
   cases.forEach(c => {
     const buyNum =
@@ -618,6 +619,15 @@ if(buyNum > 0 || saleNum > 0){
 }
 
 const name = c.staff2 || "未入力";
+caseText +=
+`案件${validCount}
+担当：${name}
+買取：${c.buy}
+売上：${c.sale}
+利益：${c.profit}
+減価率：${c.lossRate}
+
+`;
 
 if(!staffData[name]){
 staffData[name] = {
@@ -642,7 +652,8 @@ parseInt(c.sale.replace(/[^0-9]/g,"")) || 0;
     totalProfit += parseInt(c.profit.replace(/[^0-9]/g,"")) || 0;
 
   });
-  
+
+let caseText = "";
 let staffText = "";
 
 cases.forEach((c,index)=>{
@@ -663,6 +674,8 @@ const text =
 `【${title}】
 
 案件数：${validCount}件
+
+${caseText}
 
 【担当者別合計】
 
