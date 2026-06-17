@@ -616,10 +616,20 @@ function sendDailyReport(title="合算報告"){
   let totalBuy = 0;
   let totalSale = 0;
   let totalProfit = 0;
-
+  let validCount = 0;
+  
 let staffData = {};
 
   cases.forEach(c => {
+    const buyNum =
+parseInt(c.buy.replace(/[^0-9]/g,"")) || 0;
+
+const saleNum =
+parseInt(c.sale.replace(/[^0-9]/g,"")) || 0;
+
+if(buyNum > 0 || saleNum > 0){
+    validCount++;
+}
 
 const name = c.staff2 || "未入力";
 
@@ -661,7 +671,7 @@ Object.keys(staffData).forEach(name=>{
 const text =
 `【${title}】
 
-案件数：${cases.length}件
+案件数：${validCount}件
 
 ${staffText}
 
