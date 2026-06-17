@@ -165,7 +165,7 @@ margin-top:10px;">
 </button>
 
 <button
-onclick="sendDailyReport()"
+onclick="selectReportType()"
 style="
 width:80%;
 padding:12px;
@@ -575,7 +575,7 @@ encodeURIComponent(text)
 
 }
 
-function sendDailyReport(){
+function sendDailyReport(title="合算報告"){
 
   let cases =
   JSON.parse(localStorage.getItem("cases") || "[]");
@@ -631,7 +631,7 @@ Object.keys(staffData).forEach(name=>{
 });
 
 const text =
-`【合算報告】
+`【${title}】
 
 案件数：${cases.length}件
 
@@ -652,7 +652,26 @@ ${totalProfit.toLocaleString()}円`;
   );
 
 }
+function selectReportType(){
 
+const type = prompt(
+"報告種別を入力してください\n\n" +
+"1 = 午前報告\n" +
+"2 = 日中報告\n" +
+"3 = 最終報告"
+);
+
+if(type === "1"){
+sendDailyReport("午前報告");
+}
+else if(type === "2"){
+sendDailyReport("日中報告");
+}
+else if(type === "3"){
+sendDailyReport("最終報告");
+}
+
+}
 function saveCase(){
 
 if(!confirm(
