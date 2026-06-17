@@ -7,6 +7,7 @@
 <title>買取計算</title>
 
 <style>
+
 body{
 font-family:sans-serif;
 background:#f4f6f8;
@@ -34,22 +35,10 @@ box-shadow:0 2px 6px rgba(0,0,0,.1);
 }
 
 .row{
-
 display:flex;
 align-items:center;
 justify-content:space-between;
 padding:12px 0;
-
-
-}
-
-.amount{
-  width:100%;
-  text-align:center;
-  font-weight:bold;
-  padding-bottom:12px;
-  margin-bottom:12px;
-  border-bottom:1px solid #e5e5e5;
 }
 
 .name{
@@ -58,9 +47,9 @@ width:180px;
 }
 
 .price{
-  width:120px;
-  text-align:right;
-  white-space:nowrap;
+width:120px;
+text-align:right;
+white-space:nowrap;
 }
 
 input{
@@ -74,15 +63,22 @@ text-align:right;
 width:100%;
 text-align:center;
 font-weight:bold;
-margin-top:8px;
+padding-bottom:12px;
+margin-bottom:12px;
+border-bottom:1px solid #e5e5e5;
 }
 
 .total{
-    font-size:38px;
-    font-weight:bold;
-    text-align:center;
-    color:black;
+font-size:38px;
+font-weight:bold;
+text-align:center;
+color:black;
 }
+
+button{
+cursor:pointer;
+}
+
 </style>
 </head>
 
@@ -102,6 +98,7 @@ margin-bottom:8px;">
 </div>
 
 <div class="card">
+
 <div style="text-align:center;font-size:24px;font-weight:bold;margin-bottom:10px;">
 総売上
 </div>
@@ -112,9 +109,7 @@ margin-bottom:8px;">
 合計買取
 </div>
 
-<div class="total" id="buyTotal">
-0円
-</div>
+<div class="total" id="buyTotal">0円</div>
 
 <div style="margin-top:15px;text-align:center;">
 
@@ -154,7 +149,8 @@ font-size:16px;">
 個別LINE報告
 </button>
 
-<button onclick="saveCase()"
+<button
+onclick="saveCase()"
 style="
 width:80%;
 padding:12px;
@@ -174,39 +170,43 @@ margin-top:10px;">
 width:200px;
 background:#cfcfcf;
 height:3px;
-margin:10px auto 15px auto;
-"></div>
+margin:10px auto 15px auto;">
+</div>
 
-<div style="text-align:center;margin-top:10px;font-size:16px;font-weight:500;">
+<div style="text-align:center;font-size:16px;font-weight:500;">
 金プラチナ買取
 </div>
 
-<div class="total" id="metalTotal" style="font-size:28px;color:#16354d;">
+<div class="total" id="metalTotal"
+style="font-size:28px;color:#16354d;">
 0円
 </div>
 
-<div style="text-align:center;margin-top:10px;font-size:16px;font-weight:500;">
+<div style="text-align:center;font-size:16px;font-weight:500;">
 その他買取
 </div>
 
-<div class="total" id="freeBuyTotal" style="font-size:28px;color:#16354d;">
+<div class="total" id="freeBuyTotal"
+style="font-size:28px;color:#16354d;">
 0円
 </div>
 
 <div style="text-align:center;margin-top:15px;">
+
 買取率
+
 <input
 type="number"
 id="rate"
 value="11"
-style="width:70px;text-align:center;"
-> %
+style="width:70px;text-align:center;"> %
 
 <button onclick="applyRate()">
 全金種に反映
 </button>
 
-<button onclick="resetAll()"
+<button
+onclick="resetAll()"
 style="
 background:#d9534f;
 color:white;
@@ -227,16 +227,13 @@ border-radius:6px;">
 
 <!-- フリー1 -->
 <div style="text-align:right;margin-bottom:10px;">
-<input type="number" id="freeRate1" value="11" placeholder="%"
-oninput="calc()">
+<input type="number" id="freeRate1" value="11" oninput="calc()">
 </div>
 
 <div class="row">
 <input type="text" id="freeName1" placeholder="金種">
-<input type="number" id="freePrice1" placeholder="単価"
-oninput="calc()">
-<input type="number" id="freeGram1" placeholder="g"
-oninput="calc()">
+<input type="number" id="freePrice1" placeholder="単価" oninput="calc()">
+<input type="number" id="freeGram1" placeholder="g" oninput="calc()">
 </div>
 
 <div class="amount" id="freeAmount1">
@@ -247,16 +244,13 @@ oninput="calc()">
 
 <!-- フリー2 -->
 <div style="text-align:right;margin-bottom:10px;">
-<input type="number" id="freeRate2" value="11" placeholder="%"
-oninput="calc()">
+<input type="number" id="freeRate2" value="11" oninput="calc()">
 </div>
 
 <div class="row">
 <input type="text" id="freeName2" placeholder="金種">
-<input type="number" id="freePrice2" placeholder="単価"
-oninput="calc()">
-<input type="number" id="freeGram2" placeholder="g"
-oninput="calc()">
+<input type="number" id="freePrice2" placeholder="単価" oninput="calc()">
+<input type="number" id="freeGram2" placeholder="g" oninput="calc()">
 </div>
 
 <div class="amount" id="freeAmount2">
@@ -267,16 +261,13 @@ oninput="calc()">
 
 <!-- フリー3 -->
 <div style="text-align:right;margin-bottom:10px;">
-<input type="number" id="freeRate3" value="11" placeholder="%"
-oninput="calc()">
+<input type="number" id="freeRate3" value="11" oninput="calc()">
 </div>
 
 <div class="row">
 <input type="text" id="freeName3" placeholder="金種">
-<input type="number" id="freePrice3" placeholder="単価"
-oninput="calc()">
-<input type="number" id="freeGram3" placeholder="g"
-oninput="calc()">
+<input type="number" id="freePrice3" placeholder="単価" oninput="calc()">
+<input type="number" id="freeGram3" placeholder="g" oninput="calc()">
 </div>
 
 <div class="amount" id="freeAmount3">
@@ -287,16 +278,13 @@ oninput="calc()">
 
 <!-- フリー4 -->
 <div style="text-align:right;margin-bottom:10px;">
-<input type="number" id="freeRate4" value="11" placeholder="%"
-oninput="calc()">
+<input type="number" id="freeRate4" value="11" oninput="calc()">
 </div>
 
 <div class="row">
 <input type="text" id="freeName4" placeholder="金種">
-<input type="number" id="freePrice4" placeholder="単価"
-oninput="calc()">
-<input type="number" id="freeGram4" placeholder="g"
-oninput="calc()">
+<input type="number" id="freePrice4" placeholder="単価" oninput="calc()">
+<input type="number" id="freeGram4" placeholder="g" oninput="calc()">
 </div>
 
 <div class="amount" id="freeAmount4">
@@ -307,16 +295,13 @@ oninput="calc()">
 
 <!-- フリー5 -->
 <div style="text-align:right;margin-bottom:10px;">
-<input type="number" id="freeRate5" value="11" placeholder="%"
-oninput="calc()">
+<input type="number" id="freeRate5" value="11" oninput="calc()">
 </div>
 
 <div class="row">
 <input type="text" id="freeName5" placeholder="金種">
-<input type="number" id="freePrice5" placeholder="単価"
-oninput="calc()">
-<input type="number" id="freeGram5" placeholder="g"
-oninput="calc()">
+<input type="number" id="freePrice5" placeholder="単価" oninput="calc()">
+<input type="number" id="freeGram5" placeholder="g" oninput="calc()">
 </div>
 
 <div class="amount" id="freeAmount5">
@@ -325,7 +310,6 @@ oninput="calc()">
 
 </div>
 
-  
 <script>
 
 const items = [
@@ -361,72 +345,86 @@ const items = [
 
 ];
 
-const list=document.getElementById("list");
+const list = document.getElementById("list");
 
 items.forEach((item,i)=>{
 
 list.innerHTML += `
 <div class="row">
+
 <div class="name">${item[0]}</div>
-<div class="price">${item[1].toLocaleString()}円</div>
-<input type="number"
+
+<div class="price">
+${item[1].toLocaleString()}円
+</div>
+
+<input
+type="number"
 step="0.1"
 placeholder="g"
 oninput="calc()"
 id="g${i}"
 style="width:60px;text-align:center;">
-<input type="number"
+
+<input
+type="number"
 step="0.1"
 value="11"
-placeholder="%"
 oninput="calc()"
 id="rate${i}"
 style="width:60px;">
+
 </div>
 
 <div class="amount" id="a${i}">
-売 0円　買 0円
-
-</div>
-
+売 0円　
+<span style="color:#16354d;">
+買 0円
+</span>
 </div>
 `;
 
 });
+
 function applyRate(){
 
-let rate =
+const rate =
 parseFloat(document.getElementById("rate").value) || 0;
 
 items.forEach((item,i)=>{
 document.getElementById("rate"+i).value = rate;
 });
 
+for(let i=1;i<=5;i++){
+document.getElementById("freeRate"+i).value = rate;
+}
+
 calc();
 
 }
+
 function calc(){
 
-let total=0;
-let buyTotal=0;
-let freeBuyTotal=0;
+let total = 0;
+let buyTotal = 0;
+let freeBuyTotal = 0;
 
 items.forEach((item,i)=>{
 
-let g =
+const g =
 parseFloat(document.getElementById("g"+i).value) || 0;
 
-let amount =
+const amount =
 Math.round(g * item[1]);
 
-let itemRate =
+const itemRate =
 parseFloat(document.getElementById("rate"+i).value) || 0;
 
-let buyAmount =
+const buyAmount =
 Math.round(amount * itemRate / 100);
 
 document.getElementById("a"+i).innerHTML =
-"売 " + amount.toLocaleString() + "円 " +
+"売 " + amount.toLocaleString() + "円　" +
 "<span style='color:#16354d;'>買 " +
 buyAmount.toLocaleString() +
 "円</span>";
@@ -438,19 +436,19 @@ buyTotal += buyAmount;
 
 for(let i=1;i<=5;i++){
 
-let freePrice =
-parseFloat(document.getElementById("freePrice"+i).value)||0;
+const freePrice =
+parseFloat(document.getElementById("freePrice"+i).value) || 0;
 
-let freeGram =
-parseFloat(document.getElementById("freeGram"+i).value)||0;
+const freeGram =
+parseFloat(document.getElementById("freeGram"+i).value) || 0;
 
-let freeRate =
-parseFloat(document.getElementById("freeRate"+i).value)||0;
+const freeRate =
+parseFloat(document.getElementById("freeRate"+i).value) || 0;
 
-let freeSell =
+const freeSell =
 Math.round(freePrice * freeGram);
 
-let freeBuy =
+const freeBuy =
 Math.round(freeSell * freeRate / 100);
 
 document.getElementById("freeAmount"+i).innerHTML =
@@ -461,45 +459,46 @@ freeBuy.toLocaleString() +
 
 total += freeSell;
 freeBuyTotal += freeBuy;
+
 }
 
+document.getElementById("total").innerHTML =
+total.toLocaleString() + "円";
 
 document.getElementById("buyTotal").innerHTML =
-(buyTotal + freeBuyTotal).toLocaleString()+"円";
+(buyTotal + freeBuyTotal).toLocaleString() + "円";
+
 document.getElementById("metalTotal").innerHTML =
-buyTotal.toLocaleString()+"円";
+buyTotal.toLocaleString() + "円";
 
 document.getElementById("freeBuyTotal").innerHTML =
-freeBuyTotal.toLocaleString()+"円";
-
+freeBuyTotal.toLocaleString() + "円";
 
 let lossRate = 0;
 
 if(total > 0){
-  lossRate = ((buyTotal + freeBuyTotal) / total) * 100;
+lossRate = ((buyTotal + freeBuyTotal) / total) * 100;
 }
 
-let lossColor = "black";
+let color = "black";
 
 if(lossRate >= 40){
-  lossColor = "red";
-}else if(lossRate >= 30){
-  lossColor = "orange";
+color = "red";
+}
+else if(lossRate >= 30){
+color = "orange";
 }
 
 document.getElementById("lossRate").innerHTML =
-'<span style="color:' + lossColor + ';">' +
+'<span style="color:' + color + ';">' +
 lossRate.toFixed(1) +
 '%</span>';
 
-document.getElementById("total").innerHTML=
-total.toLocaleString()+"円";
-
 }
+
 window.onload = function(){
 
 const today = new Date();
-
 const week = ["日","月","火","水","木","金","土"];
 
 document.getElementById("today").innerHTML =
@@ -508,120 +507,115 @@ String(today.getMonth()+1).padStart(2,"0") + "/" +
 String(today.getDate()).padStart(2,"0") +
 "（" + week[today.getDay()] + "）";
 
-}
+calc();
+
+};
 
 function sendLineReport(){
 
-  const staff2 =
+const staff1 =
+document.getElementById("staff1").value || "-";
+
+const staff2 =
 document.getElementById("staff2").value || "-";
 
-const rate =
-document.getElementById("rate").value || 0;
-
 const buy =
-  document.getElementById("buyTotal").innerText;
+document.getElementById("buyTotal").innerText;
 
-  const sale =
-  document.getElementById("total").innerText;
+const sale =
+document.getElementById("total").innerText;
 
-  const profit =
-  (
-    parseInt(sale.replace(/[^0-9]/g,"")) -
-    parseInt(buy.replace(/[^0-9]/g,""))
-  ).toLocaleString() + "円";
+const profit =
+(
+parseInt(sale.replace(/[^0-9]/g,"")) -
+parseInt(buy.replace(/[^0-9]/g,""))
+).toLocaleString() + "円";
 
-  const text =
+const text =
 `【売上報告】
 
 担当者①：${staff1}
-
 担当者②：${staff2}
 
-減価率：${rate}%
-
 買取額：${buy}
-
 売上：${sale}
+利益：${profit}`;
 
-利益：${profit}
-
-  window.open(
-    "https://line.me/R/msg/text/?"
-    + encodeURIComponent(text)
-  );
+window.open(
+"https://line.me/R/msg/text/?" +
+encodeURIComponent(text)
+);
 
 }
 
 function saveCase(){
 
-  const staff1 =
-  document.getElementById("staff1").value || "-";
+const staff1 =
+document.getElementById("staff1").value || "-";
 
-  const staff2 =
-  document.getElementById("staff2").value || "-";
+const staff2 =
+document.getElementById("staff2").value || "-";
 
-  const rate =
-  document.getElementById("rate").value || 0;
+const buy =
+document.getElementById("buyTotal").innerText;
 
-  const buy =
-  document.getElementById("buyTotal").innerText;
+const sale =
+document.getElementById("total").innerText;
 
-  const sale =
-  document.getElementById("total").innerText;
+const profit =
+(
+parseInt(sale.replace(/[^0-9]/g,"")) -
+parseInt(buy.replace(/[^0-9]/g,""))
+).toLocaleString() + "円";
 
-  const profit =
-  (
-    parseInt(sale.replace(/[^0-9]/g,"")) -
-    parseInt(buy.replace(/[^0-9]/g,""))
-  ).toLocaleString() + "円";
+let cases =
+JSON.parse(localStorage.getItem("cases") || "[]");
 
-  let cases =
-  JSON.parse(localStorage.getItem("cases") || "[]");
+cases.push({
+date:new Date().toLocaleString(),
+staff1,
+staff2,
+buy,
+sale,
+profit
+});
 
-  cases.push({
-    date:new Date().toLocaleString(),
-    staff1,
-    staff2,
-    rate,
-    buy,
-    sale,
-    profit
-  });
+localStorage.setItem(
+"cases",
+JSON.stringify(cases)
+);
 
-  localStorage.setItem(
-    "cases",
-    JSON.stringify(cases)
-  );
+alert("案件を保存しました");
 
-  alert("案件を保存しました");
 }
 
 function resetAll(){
 
-  if(!confirm("本当にすべての入力をリセットしますか？")){
-    return;
-  }
+if(!confirm("本当にリセットしますか？")){
+return;
+}
 
-  document.querySelectorAll("input").forEach(input=>{
+document.querySelectorAll("input").forEach(input=>{
 
-    if(input.id === "rate"){
-      input.value = 11;
-    }
-    else if(input.id && input.id.startsWith("rate")){
-      input.value = 11;
-    }
-    else if(input.id && input.id.startsWith("freeRate")){
-      input.value = 11;
-    }
-    else{
-      input.value = "";
-    }
+if(input.id === "rate"){
+input.value = 11;
+}
+else if(input.id.startsWith("rate")){
+input.value = 11;
+}
+else if(input.id.startsWith("freeRate")){
+input.value = 11;
+}
+else{
+input.value = "";
+}
 
-  });
+});
 
-  calc();
+calc();
 
 }
+
 </script>
 
 </body>
