@@ -436,6 +436,9 @@ let total = 0;
 let buyTotal = 0;
 let freeBuyTotal = 0;
 
+const adjust =
+parseInt(document.getElementById("adjust").value) || 0;
+
 items.forEach((item,i)=>{
 
 const g =
@@ -492,8 +495,11 @@ freeBuyTotal += freeBuy;
 document.getElementById("total").innerHTML =
 total.toLocaleString() + "円";
 
+const finalBuy =
+buyTotal + freeBuyTotal + adjust;
+
 document.getElementById("buyTotal").innerHTML =
-(buyTotal + freeBuyTotal).toLocaleString() + "円";
+finalBuy.toLocaleString() + "円";
 
 document.getElementById("metalTotal").innerHTML =
 buyTotal.toLocaleString() + "円";
@@ -504,7 +510,7 @@ freeBuyTotal.toLocaleString() + "円";
 let lossRate = 0;
 
 if(total > 0){
-lossRate = ((buyTotal + freeBuyTotal) / total) * 100;
+lossRate = (finalBuy / total) * 100;
 }
 
 let color = "black";
